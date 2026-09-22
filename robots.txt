@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://hugo29200.github.io/hugolabory.github.io/sitemap.xml
