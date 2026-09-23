@@ -260,12 +260,12 @@ section.trust{padding:78px 0;background:#f5f2ec;color:#151722}
 
 <section id="contact" class="dark"><div class="wrap contact">
   <div><div class="eyebrow">Un projet ?</div><h2>Parlons de votre équipe.</h2><p class="muted">Vous organisez une journée d’équipe ou cherchez une activité originale ? Décrivez-moi votre projet et je vous répondrai avec une proposition adaptée.</p><p><strong>📍 Finistère · Bretagne</strong></p></div>
-  <form onsubmit="sendMail(event)">
-    <label for="name">Nom</label><input id="name" required placeholder="Votre nom">
-    <label for="company">Entreprise</label><input id="company" placeholder="Nom de votre entreprise">
-    <label for="email">Email</label><input id="email" type="email" required placeholder="vous@entreprise.fr">
-    <label for="format">Votre besoin</label><select id="format"><option>Atelier d’improvisation</option><option>Team building</option><option>Séminaire</option><option>Prise de parole</option><option>Autre</option></select>
-    <label for="message">Message</label><textarea id="message" placeholder="Quelques mots sur votre projet..."></textarea>
+  <form action="https://formspree.io/f/mgaeqbve" method="POST">
+    <label for="name">Nom</label><input id="name" name="name" required placeholder="Votre nom">
+    <label for="company">Entreprise</label><input id="company" name="company" placeholder="Nom de votre entreprise">
+    <label for="email">Email</label><input id="email" name="email" type="email" required placeholder="vous@entreprise.fr">
+    <label for="format">Votre besoin</label><select id="format" name="format"><option>Atelier d’improvisation</option><option>Team building</option><option>Séminaire</option><option>Prise de parole</option><option>Autre</option></select>
+    <label for="message">Message</label><textarea id="message" name="message" placeholder="Quelques mots sur votre projet..."></textarea>
     <button class="btn" type="submit" style="margin-top:16px;width:100%">Envoyer ma demande</button>
     <p id="status" class="muted" style="font-size:13px"></p>
   </form>
@@ -274,18 +274,6 @@ section.trust{padding:78px 0;background:#f5f2ec;color:#151722}
 
 <footer><div class="wrap footer-row"><div>© 2026 Hugo Labory · Improvisation & Théâtre</div><div>Ateliers · Entreprise · Théâtre</div></div></footer>
 
-<script>
-function sendMail(e){
-  e.preventDefault();
-  const n=document.getElementById('name').value, c=document.getElementById('company').value;
-  const em=document.getElementById('email').value, f=document.getElementById('format').value;
-  const m=document.getElementById('message').value;
-  const subject=encodeURIComponent("Demande d'atelier d'improvisation — "+(c||n));
-  const body=encodeURIComponent("Bonjour Hugo,%0A%0AJe vous contacte au sujet de : "+f+".%0A%0ANom : "+n+"%0AEntreprise : "+c+"%0AEmail : "+em+"%0A%0A"+m);
-  // Remplacez l'adresse ci-dessous par votre adresse professionnelle.
-  window.location.href="mailto:VOTRE-EMAIL@EXEMPLE.FR?subject="+subject+"&body="+body;
-  document.getElementById('status').textContent="Votre logiciel de messagerie va s’ouvrir. Pensez à remplacer l’adresse email dans le code avant la mise en ligne.";
-}
-</script>
+
 </body>
 </html>
